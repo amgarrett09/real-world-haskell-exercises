@@ -1,0 +1,29 @@
+1.
+  5 + 8 has the type Num a => a
+  3 * 5 + 8 also has the type Num a => a
+  (+) 2 4 again has the type Num a => a
+
+  sqrt 16 has the type Floating a => a
+
+  succ 6 has the type (Enum a, Num a) => a
+  as does pred 9
+
+  sin (pi / 2) has the type Floating a => a
+
+  truncate pi has the type Integral a => a
+  as do round, floor, and ceiling
+
+2. ':show bindings' in ghci prints a list of the values you currently have
+defined in the interpreter. The current version of ghci (at the time of writing
+this) doesn't actuall evaluate the values, but it displays their type.
+
+3. Program to count words:
+  wordCount input = show (length (words input)) ++ "\n"
+
+  main = interact wordCount
+
+4. Program to count characters:
+  wordCount input = show (length input) ++ "\n"
+
+  main = interact wordCount
+
