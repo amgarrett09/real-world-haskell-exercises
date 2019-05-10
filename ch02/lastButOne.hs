@@ -1,7 +1,8 @@
 -- Return the element before the last element in a list
-lastButOne (x:xs) = if length xs == 1
-                    then x
-                    else lastButOne xs
+lastButOne (x:xs)
+    | length xs == 1 = x
+    | otherwise = lastButOne xs
+lastButOne _ = error "List must have at least two elements"
 
 -- We can see the idea behind this by writing out some concrete cases:
 --
