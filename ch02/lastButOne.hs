@@ -1,8 +1,7 @@
 -- Return the element before the last element in a list
-lastButOne xs =
-    if length xs == 2
-    then head xs
-    else lastButOne (tail xs)
+lastButOne (x:xs) = if length xs == 1
+                    then x
+                     else lastButOne xs
 
 -- We can see the idea behind this by writing out some concrete cases:
 --
