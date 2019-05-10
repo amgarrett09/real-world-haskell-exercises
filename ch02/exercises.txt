@@ -1,0 +1,20 @@
+List and tuple exercises:
+
+1.
+  False is of type Bool
+  (["foo", "bar"], 'a') is of type ([[Char]], Char) (e.g., a 2-tuple of a
+    list of Strings and a Char)
+  [(True, []), (False, [['a']])] is of type
+    [(Bool, [[Char]])]
+
+
+Polymorphism exercises:
+
+1. The function last, which is of type [a] -> a, can *only* return the last
+element of a list. It can't produce a value of type a, and it can't turn an a
+into any other type, because it doesn't have information about what concrete
+type the value is.
+
+2. Solution is in the lastButOne.hs file in the current directory.
+
+3. If the list is too short, lastButOne will throw an exception.

@@ -1,0 +1,62 @@
+-- a re-implementation of the drop function to get a handle on branches
+-- and a first taste of recursion
+myDrop :: Int -> [a] -> [a]
+myDrop n xs =
+  if n <=0 || null xs
+  then xs
+  else tail (myDrop (n - 1) xs)
+
+-- When coming up with a recursive function, it can help to write out some
+-- inputs and outputs to try to establish a pattern:
+--
+-- myDrop 1 [1,2,3,4] = [2,3,4]
+-- myDrop 2 [1,2,3,4] = [3,4]
+-- myDrop 3 [1,2,3,4] = [4]
+--
+-- Here we can notice that:
+--
+-- myDrop 2 xs = tail (myDrop 1 xs)
+-- myDrop 3 xs = tail (myDrop 2 xs)
+--
+-- So we could write the function as:
+-- 
+-- myDrop n xs =
+--    if n <= 0 || null xs
+--    then xs
+--    else tail (myDrop (n - 1) xs)
+--
+-- and this works. The expansion looks like this:
+--
+-- myDrop 3 [1,2,3,4] = 
+-- tail (myDrop 2 [1,2,3,4]) =
+-- tail (tail (myDrop 1 [1,2,3,4])) =
+-- tail (tail (tail (myDrop 0 [1,2,3,4]))) =
+-- tail (tail (tail [1,2,3,4])) =
+-- tail (tail [2,3,4]) = 
+-- tail [3,4] = 
+-- [4]
+--
+-- If we don't like this solution, there's another way to look at this.
+--
+-- myDrop 2 [1,2,3,4] = [3,4] = myDrop 1 [2,3,4] = myDrop 1 (tail [1,2,3,4])
+--
+-- So we could re-write the function as:
+--
+-- myDrop n xs =
+--    if n <= 0 || null xs
+--    then xs
+--    else myDrop (n - 1) (tail xs)
+--
+-- The expansion looks like this:
+--
+-- myDrop 3 [1,2,3,4] =
+-- myDrop 2 (tail [1,2,3,4]) =
+-- myDrop 1 (tail (tail [1,2,3,4])) = 
+-- myDrop 0 (tail (tail (tail [1,2,3,4]))) = 
+-- tail (tail (tail [1,2,3,4])) = 
+-- tail (tail [2,3,4]) =
+-- tail [3,4] = 
+-- [4]
+--
+-- Either way is pretty much the same. The second example may be a little
+-- clearer however. Seems to me a matter of preference.
