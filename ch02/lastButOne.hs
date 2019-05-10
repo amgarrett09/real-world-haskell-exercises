@@ -14,7 +14,7 @@ lastButOne (x:xs) = if length xs == 1
 -- that gives us a recurrence relation.
 --
 -- We need a base case though, and that's reached when there are only two
--- elements in the this. In this case, lastButOne is simply the head of the
+-- elements in the list. In this case, lastButOne is simply the head of the
 -- list.
 --
 -- Right now, in the case where the list has less than two elements,
