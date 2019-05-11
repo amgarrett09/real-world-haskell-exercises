@@ -1,0 +1,11 @@
+Recursive types exercises:
+
+1. Solution can be found in ListADT.hs
+2. Solution can be found in Tree.hs
+
+
+End exercises:
+
+Solutions for 1 - 7 are in listExercises.hs
+
+Solution 8 is in Tree.hs
