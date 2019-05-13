@@ -1,0 +1,3 @@
+hello world
+i'm alex garrett
+this is input in for a haskell program
