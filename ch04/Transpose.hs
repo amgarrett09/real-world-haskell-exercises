@@ -6,6 +6,7 @@
 -- Could fix this by filtering out empty lines, but it's good enough for now.
 
 import System.Environment (getArgs)
+import Data.List (foldl')
 
 -- System agnostic line splitter
 splitLines [] = []
@@ -38,7 +39,7 @@ transpose (x:y:ys) =
      then transTwo
      -- If there are 3+ words in the list, transpose the first
      -- two and use that as a starting point for a fold on the rest of the words
-     else foldl (\acc st -> map flatten' (zip acc st)) transTwo ys
+     else foldl' (\acc st -> map flatten' (zip acc st)) transTwo ys
 
 transposeLines :: String -> [String]
 transposeLines input = transpose (splitLines input)
